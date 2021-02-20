@@ -34,7 +34,7 @@ class Vector_3():
         return True
 
     def length_to_power_of_two(self):
-        return (self.x*self.y) + (self.y*self.y) + (self.z*self.z)
+        return (self.x*self.x) + (self.y*self.y) + (self.z*self.z)
     
     def length(self):
         return sqrt(self.length_to_power_of_two())
@@ -63,7 +63,10 @@ class Vector_3():
     def __eq__(self,other_vector):
             if is_vector_3(other_vector):
                 return (self.x==other_vector.x) and (self.y==other_vector.y) and (self.z==other_vector.z)
-
+    
+    def __ne__(self,other_vector):
+        if is_vector_3(other_vector):
+            return (self.x!=other_vector.x) or (self.y!=other_vector.y) or (self.z!=other_vector.z)
 
     def __add__(self,other_vector):
         if is_vector_3(other_vector):
