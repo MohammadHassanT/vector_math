@@ -1,28 +1,10 @@
 from math import sqrt
-from base_coordinate.BaseCoordinate import is_number 
+from base_coordinate.BaseCoordinate import BaseCartesian
 
-dimention=3
 
-class Vector_3():
+class Cartesian(BaseCartesian):
     # a point or a vector in cartesian
     
-    def __init__(self,x=0,y=0,z=0):
-        if is_number(x,y,z):
-            self.x=x
-            self.y=y 
-            self.z=z
-
-
-    @staticmethod 
-    def _is_vector_3(a):
-        return isinstance(a,Vector_3)
-
-    @staticmethod 
-    def is_vector_3(a):
-        if not _is_vector_3(a):
-            raise ValueError('This is not an instance of Vector_3 class')
-        return True
-
     def length_to_power_of_two(self):
         return (self.x*self.x) + (self.y*self.y) + (self.z*self.z)
     
@@ -51,19 +33,19 @@ class Vector_3():
 
 
     def __eq__(self,other_vector):
-            if is_vector_3(other_vector):
+            if is_in_cartesian(other_vector):
                 return (self.x==other_vector.x) and (self.y==other_vector.y) and (self.z==other_vector.z)
             return NotImplemented
 
     
     def __ne__(self,other_vector):
-        if is_vector_3(other_vector):
+        if is_in_cartesian(other_vector):
             return (self.x!=other_vector.x) or (self.y!=other_vector.y) or (self.z!=other_vector.z)
         return NotImplemented
 
     
     def __add__(self,other_vector):
-        if is_vector_3(other_vector):
+        if is_in_cartesian(other_vector):
             x=self.x+other_vector.x
             y=self.y+other_vector.y
             z=self.z+other_vector.z
@@ -73,7 +55,7 @@ class Vector_3():
 
 
     def __sub__(self,other_vector):
-        if is_vector_3(other_vector):
+        if is_in_cartesian(other_vector):
             x=self.x-other_vector.x
             y=self.y-other_vector.y
             z=self.z-other_vector.z
@@ -83,12 +65,12 @@ class Vector_3():
 
 
     def dot_product(self,other_vector):
-        if is_vector_3(other_vector)
+        if is_in_cartesian(other_vector)
             return (self.x*other_vector.x)+(self.y*other_vector.y)+(self.z*other_vector.z)
         
 
     def cross_product(self,other_vector):
-        if is_vector_3(other_vector):
+        if is_in_cartesian(other_vector):
             x=(self.y*other_vector.z) - (self.z*other_vector.y)
             y=(self.z*other_vector.x) - (self.x*other_vector.z)
             z=(self.x*other_vector.y) - (self.y*other_vector.x)
