@@ -1,5 +1,7 @@
 from math import sqrt as math_sqrt 
-from base_coordinate import BaseCartesian
+from math import cos as math_cos
+from math import sin as math_sin 
+from base_coordinate import BaseCartesian,BaseCircularCylindrial,BaceSpherialCoordinate
 
 
 class Cartesian(BaseCartesian):
@@ -82,4 +84,3 @@ class Cartesian(BaseCartesian):
         if is_vector_3(other_vector):
             coefficient= 1.0*dot_product(self,ohter_vector)/(other_vector.length_to_power_of_two())
             return product_by_num(b,coefficient)
-

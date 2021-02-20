@@ -17,7 +17,7 @@ class BaseCoordinate:
         return True
 ###############################################
 
-class BaseCartesian():
+class BaseCartesian:
     # a point or a vector in cartesian
 
     def __init__(self,x,y,z):
@@ -43,7 +43,7 @@ class BaseCartesian():
         return f'x={self.x}\ty={self.y}\tz={self.z}'
 ##############################################
 
-class BaseCircularCylindrial():
+class BaseCircularCylindrial:
 
     @staticmethod
     def is_in_r_bound(r):
@@ -83,7 +83,7 @@ class BaseCircularCylindrial():
 
 ########################################################
 
-class BaseSpherialCoordinates():
+class BaseSpherialCoordinate:
     
     @staticmethod
     def is_in_r_bound(r):
@@ -111,11 +111,11 @@ class BaseSpherialCoordinates():
                 self.phi=phi
 
     @staticmethod
-    def _is_in_spherial_coordinates(test):
+    def _is_in_spherial_coordinate(test):
         return isinstance(test,BaseSpherialCoordinates)
 
     @staticmethod
-    def is_in_spherial_coordinates(*args):
+    def is_in_spherial_coordinate(*args):
         for test in args:
             if not _is_in_circular_cylindrial(test):
                 raise ValueError('This is not an instance of Spherial Coordinates class')
