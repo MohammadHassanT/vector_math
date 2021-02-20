@@ -1,5 +1,5 @@
 from math import sqrt
-
+from base_coordinate.BaseCoordinate import is_number 
 
 dimention=3
 
@@ -7,21 +7,11 @@ class Vector_3():
     # a point or a vector in cartesian
     
     def __init__(self,x=0,y=0,z=0):
-        if _is_number(x) and _is_number(y) and _is_number(z):
+        if is_number(x,y,z):
             self.x=x
             self.y=y 
             self.z=z
-        raise ValueError('vector in 3D space must have three number(int,float) input') 
 
-    @staticmethod 
-    def _is_number(a):
-        return (isinstance(a,(int,float))) and (not isinstance(a,bool))
-
-    @staticmethod
-    def is_number(a):
-        if not _is_number(a):
-            raise ValueError('this is not a number(float or int)')
-        return True
 
     @staticmethod 
     def _is_vector_3(a):
@@ -96,8 +86,6 @@ class Vector_3():
         if is_vector_3(other_vector)
             return (self.x*other_vector.x)+(self.y*other_vector.y)+(self.z*other_vector.z)
         
-        raise ValueError('invalid input')
-
 
     def cross_product(self,other_vector):
         if is_vector_3(other_vector):
@@ -106,14 +94,10 @@ class Vector_3():
             z=(self.x*other_vector.y) - (self.y*other_vector.x)
             return Vector_3(x,y,z)
 
-        raise ValueError('invalid input')
-
 
     def projection(self,other_vector):
         ## projection of self along other_vector 
         if is_vector_3(other_vector):
             coefficient= 1.0*dot_product(self,ohter_vector)/(other_vector.length_to_power_of_two())
             return _vector_3_product_by_num(b,coefficient)
-
-        raise ValueError('invalid input')
 
